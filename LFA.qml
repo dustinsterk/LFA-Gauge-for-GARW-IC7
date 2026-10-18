@@ -1815,8 +1815,8 @@ Item {
     Connections {
         target: rpmtest
         ignoreUnknownSignals: true
-        onInputsdataChanged:     root.evalEdges()   // old-style: fires reliably on the IC7's Qt 5.12
-        onUdp_packetdataChanged: root.evalEdges()
+        function onInputsdataChanged()     { root.evalEdges(); }
+        function onUdp_packetdataChanged() { root.evalEdges(); }
     }
     Timer { interval: 30; running: true; repeat: true; onTriggered: root.evalEdges() }
     Timer {   // hold-to-ramp for numeric rows (only while the menu is open)
