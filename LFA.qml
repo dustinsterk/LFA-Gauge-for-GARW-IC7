@@ -922,12 +922,12 @@ Item {
             id: water_temp_rect
             x: (15 - root.gaugemax) + root.gaugeoffset
             y: if (root.waterunits !== 0) {
-                    if (root.watertemp > 120)
+                    if (root.watertemp > 110)
                         59
-                    else if (root.watertemp < 80)
-                        240
+                    else if (root.watertemp < 60)
+                        205
                     else
-                        240 - ((root.watertemp - 67) * 3.33)
+                        205 - ((root.watertemp - 60) * 2.92)   // Celsius: gauge spans 60-110, 85 = midpoint
                 }
                 else {
                     if (root.watertempf >= 240)
@@ -1010,7 +1010,7 @@ Item {
             width: 15
             height: 33
             color: "#dfdfdf"
-            text: (root.waterunits !== 0) ? "120" : "240"
+            text: (root.waterunits !== 0) ? "110" : "240"
             style: Text.Outline
             horizontalAlignment: Text.AlignRight
             font.family: gauge_font.name
@@ -1028,7 +1028,7 @@ Item {
             width: 15
             height: 33
             color: "#dfdfdf"
-            text: (root.waterunits !== 0) ? "100" : "180"
+            text: (root.waterunits !== 0) ? "85" : "180"
             style: Text.Outline
             horizontalAlignment: Text.AlignRight
             font.family: gauge_font.name
@@ -1046,7 +1046,7 @@ Item {
             width: 15
             height: 33
             color: "#dfdfdf"
-            text: (root.waterunits !== 0) ? "80" : "120"
+            text: (root.waterunits !== 0) ? "60" : "120"
             style: Text.Outline
             horizontalAlignment: Text.AlignRight
             font.family: gauge_font.name
